@@ -1,13 +1,19 @@
 #In your team's parameter file where you have values such as 1.96E-6. The E-6 refers to (10 ** -6)
 #So you will need to change the -6 to reflect a difference in your paramters
 
+
+#----------------------------------------------------
+#ENTER GROUP PARAMETERS HERE
+
 InputBudget = 320 #input budget
-HDPrice = [39,95,250] #need to put in corresponding HD prices
+HDPrice = [39,95,250] #need to put in corresponding HD prices in the order of: HD, SSD then XSSSD
 pmin = 1.96 * (10 ** -6) #enter value
 r = 3.8 * (10 ** -5) #enter value
 Smin = 1.1 * (10 ** -4) #enter value
 d = 0.39 #enter value
 
+#YOU WON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE
+#----------------------------------------------------
 
 RAMSize = [4,8,16]
 RAMPrice = [4*15,8*15,16*15]
