@@ -1,13 +1,19 @@
-RAMSize = [4,8,16]
-RAMPrice = [4*15,8*15,16*15]
-HDName = ['HD','SSD','XSSSD']
-HDSpeed = [120,300,420]
+#In your team's parameter file where you have values such as 1.96E-6. The E-6 refers to (10 ** -6)
+#So you will need to change the -6 to reflect a difference in your paramters
+
 InputBudget = 320 #input budget
 HDPrice = [39,95,250] #need to put in corresponding HD prices
 pmin = 1.96 * (10 ** -6) #enter value
 r = 3.8 * (10 ** -5) #enter value
 Smin = 1.1 * (10 ** -4) #enter value
 d = 0.39 #enter value
+
+
+RAMSize = [4,8,16]
+RAMPrice = [4*15,8*15,16*15]
+HDName = ['HD','SSD','XSSSD']
+HDSpeed = [120,300,420]
+
 
 print("---Question 1---\n")
 for ramprice in RAMPrice:
