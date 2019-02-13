@@ -45,6 +45,7 @@ for ramprice in RAMPrice:
             #print(p)
             #print(s)
             #print((1-p)*200 + (p*s))
+            
             print("Effective Access Time is: "+ str(format(float((200*(10 ** -9)) + (p*s)), "10.2E") + " seconds"))
             print("")
             
@@ -55,6 +56,7 @@ print("---Question 3---\n")
 #print("I hope this is right, no promises")
 outStrings = []
 outNumbers = []
+EATs = []
 for ramprice in RAMPrice:
     placeholder = 0
     for hdprice in HDPrice:
@@ -68,18 +70,25 @@ for ramprice in RAMPrice:
             s = Smin + d/(HDSpeed[placeholder])
             EAT = (200*(10 ** -9)) + (p*s)
             BAT = 200*(10 ** -9)
-            outNumber = float( (EAT - BAT) / BAT )
+            if (float(((EAT-BAT)/BAT)*100)//1) >= 10:
+                EATs.append( round(float(((EAT-BAT)/BAT)),3) )
+            else:
+                EATs.append( round(float(((EAT-BAT)/BAT)),4) )
+            #EATs.append( round(float(((EAT-BAT)/BAT)*100),2) ) #float(((EAT-BAT)/BAT)*100)
+            print(EATs)
+            
+            #outNumber = str(format(float( (EATs[placeholder] - BAT) / BAT ), "10.2E"))
             #print(outNumber)
-            outNumbers.append(outNumber)
+            #outNumbers.append(outNumber)
             #print(str(outNumber) + "%")
             #print("")
             
         placeholder = placeholder + 1          
 #print(outStrings)
 #print(outNumbers)
-minIndex = outNumbers.index(min(outNumbers))
-maxIndex = outNumbers.index(max(outNumbers))
+minIndex = EATs.index(min(EATs))
+maxIndex = EATs.index(max(EATs))
 #print(minIndex)
 #print(maxIndex)
-print("Lowest degradation is for: " + outStrings[minIndex] + " with degradation of" + format(outNumbers[minIndex],"10.2E") + "%")
-print("Highest degradation is for: " + outStrings[maxIndex] + " with degradation of" + format(outNumbers[maxIndex], "10.2E") + "%")
+print("Lowest degradation is for: " + outStrings[minIndex] + " with degradation of " + str(EATs[minIndex]*100) + "%")
+print("Highest degradation is for: " + outStrings[maxIndex] + " with degradation of " + str(EATs[maxIndex]*100) + "%")
